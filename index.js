@@ -18,7 +18,7 @@ var cdn = nconf.get('CDN_STATICS');
 var googleKey = nconf.get('GOOGLE_KEY');
 
 var boots = function (req, res, next) {
-  serand.boots([], function (err, configs) {
+  serand.boots({}, function (err, configs) {
     if (err) {
       return next(err);
     }
