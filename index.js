@@ -13,7 +13,6 @@ var serandi = require('serandi');
 var domain = 'admin';
 var version = nconf.get('INDEX_' + domain.toUpperCase());
 var server = utils.serverUrl();
-var subdomain = utils.subdomain();
 var cdn = nconf.get('CDN_STATICS');
 var googleKey = nconf.get('GOOGLE_KEY');
 
@@ -43,7 +42,6 @@ module.exports = function (router, done) {
         version: version,
         googleKey: googleKey,
         server: server,
-        subdomain: subdomain,
         configs: req.configs,
         tid: req.body.tid,
         username: req.body.username,
@@ -69,7 +67,6 @@ module.exports = function (router, done) {
         version: version,
         googleKey: googleKey,
         server: server,
-        subdomain: subdomain,
         configs: req.configs
       };
       dust.render(domain, context, function (err, index) {
